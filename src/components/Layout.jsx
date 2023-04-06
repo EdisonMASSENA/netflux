@@ -27,7 +27,7 @@ function Layout () {
     <>
       <div className={sticky ? 'navbar sticky' : 'navbar'} >
           <Link to="/"><img src="./src/assets/logo.png" className="logo" /></Link>
-          <Link to="/films"><Button variant="contained">Films</Button></Link>
+          {/* <Link to="/films"><Button variant="contained">Films</Button></Link> */}
       </div>
       <Outlet />
     </>

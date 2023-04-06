@@ -14,13 +14,12 @@ function Home() {
 
   useEffect (() => {
       async function trendMovie() {
-          const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=en-US&page=1`);
+          const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=en-US&page=1&include_adult=false`);
           const trendmovie = await response.json();
           setData(trendmovie.results);
       }
       trendMovie()
   }, [])
-  console.log(data);
 
   let i = 0;
     
@@ -41,9 +40,9 @@ function Home() {
         
       </div>
 
-      <div className="slide">
+      <div className="sliders">
 
-        <Slider data={data}/>
+        <Slider data={data} cat="Films en tendance" type="movie"/>
 
       </div>
     </>

@@ -2,6 +2,7 @@ import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 
 import './Slider.scss';
+import { Link } from 'react-router-dom';
 
 // const responsiveSettings = [
 //     {
@@ -21,15 +22,18 @@ import './Slider.scss';
 // ];responsive={responsiveSettings}
 function Slider(props) {
     return (
-        <div>
+        <>
+        <h3> {props.cat} </h3>
+        <div className="slider">
             <Slide autoplay={false} slidesToScroll={2} slidesToShow={8} indicators={false} >
                 {props.data.map((item) => (
-                    <div key={item.id} className="slide">
-                        <img className='poster' src={`https://image.tmdb.org/t/p/w200${item.poster_path}`} alt="" />
+                    <div key={item.id}>
+                      <Link to="/detail" state={{type: props.type, id: item.id}} ><img title={item.title || item.name} className='poster' src={`https://image.tmdb.org/t/p/w200${item.poster_path}`}/></Link> 
                     </div>
                 ))}
             </Slide>
         </div>
+        </>
     );
 };
 

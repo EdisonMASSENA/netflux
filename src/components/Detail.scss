@@ -1,0 +1,76 @@
+// .example-enter {
+//     opacity: 0.01;
+// }
+  
+// .example-enter.example-enter-active {
+//     opacity: 1;
+//     transition: opacity 500ms ease-in;
+// }
+
+// .example-leave {
+//     opacity: 1;
+// }
+
+// .example-leave.example-leave-active {
+//     opacity: 0.01;
+//     transition: opacity 300ms ease-in;
+// }
+
+.banner {
+    background-size: cover;
+    width:100%;
+    height: 75vh;
+}
+
+.titlebloc {
+    padding-top: 15vh;
+    margin-left: 3vw;
+    width: 45%;
+}
+
+p {
+    font-size: 1.1rem;
+}
+
+.info{
+    margin-right: 1em;
+}
+
+.play{
+    width: 10vw;
+}
+
+.bot{
+    margin-top: 3vh;
+}
+
+table{
+    color: rgb(255, 255, 255);
+}
+
+.col{
+    width: 7vw;
+}
+
+td{
+    font-size: 1.1rem;
+}
+
+.close{
+    left: 50%;
+    opacity: 1;
+    position: fixed !important;
+    top: 0;
+    z-index: 9999;
+}
+
+.player{
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 1;
+    position: fixed ;
+    top: 0; 
+    width:100%; 
+    z-index: 9999
+}
