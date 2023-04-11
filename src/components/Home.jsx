@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import "./Home.scss"
 import Slider from "./Slider";
 
@@ -20,6 +20,9 @@ function Home() {
       }
       trendMovie()
   }, [])
+  
+
+  // console.log(data);
 
   let i = 0;
     
@@ -34,8 +37,8 @@ function Home() {
 
         <div className="titlebloc">
           <h2 className="title">{data[i]?.title || data[i]?.name}</h2>
-          <Button variant="contained" className="button" >Play</Button>
-          <Button sx={{margin:1}} variant="contained" className="button" >Info</Button>
+          {/* <Button variant="contained" className="button" >Play</Button> */}
+          {/* <Button sx={{margin:1}} variant="contained" className="button" >Info</Button> */}
         </div>
         
       </div>

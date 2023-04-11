@@ -4,8 +4,6 @@ import Button from '@mui/material/Button';
 
 import "./Layout.scss";
 
-
-
 function Layout () {
 
   const [sticky, setSticky] = useState(false);
@@ -25,9 +23,9 @@ function Layout () {
 
   return (
     <>
-      <div className={sticky ? 'navbar sticky' : 'navbar'} >
+      <div className="navbar" >
           <Link to="/"><img src="./src/assets/logo.png" className="logo" /></Link>
-          {/* <Link to="/films"><Button variant="contained">Films</Button></Link> */}
+          <Link to="/favoris"><Button variant="contained">Favoris</Button></Link>
       </div>
       <Outlet />
     </>

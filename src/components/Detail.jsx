@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import Button from '@mui/material/Button';
+import Slider from "./Slider";
 
 import './Detail.scss';
 import { CloseFullscreen } from "@mui/icons-material";
@@ -16,6 +17,7 @@ function Detail() {
   const [genre, setGenre] = useState([])
   const [video, setVideo] = useState([])
   const [player, setPlayer] = useState(false)
+  const [reco, setReco] = useState([])
 
   const urlImage = "http://image.tmdb.org/t/p/original"
 
@@ -36,9 +38,6 @@ function Detail() {
       // in the array newData we need only the name in the genre array separated by a comma
       const genre = newData.genres.map((genre) => genre.name).join(', ');
       setGenre(genre);
-
-      
-
       setDetail(newData);
     };
 
@@ -69,12 +68,21 @@ function Detail() {
     };
     getVideo();
   }, [injdata.id]);
+
+  useEffect(() => {
+    const getRecommendation = async () => {
+      const response = await fetch(`https://api.themoviedb.org/3/movie/${injdata.id}/recommendations?api_key=${api_key}&language=en-US&page=1&include_adult=false`);
+      const recommendation = await response.json();
+      setReco(recommendation.results);
+    };
+    getRecommendation();
+  }, [injdata.id]);
   
 
-  console.log(video);
+  // console.log(reco);
 
   let sectionStyle = {
-    backgroundImage: `linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url(${urlImage}${detail?.backdrop_path})`
+    backgroundImage: `linear-gradient(50deg,rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url(${urlImage}${detail?.backdrop_path})`
   };
 
   return (
@@ -126,6 +134,10 @@ function Detail() {
 
         </div>
 
+      </div>
+
+      <div>
+        <Slider data={reco} cat="Recommendations" type="movie"/>
       </div>
 
     </div>

@@ -5,6 +5,7 @@ import './App.css'
 import Home from "./components/Home";
 import Layout from "./components/Layout";
 import Detail from './components/Detail';
+import Favs from './components/Favs';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path='/detail' element={<Detail />} />
+            <Route path='/favoris' element={<Favs />} />
           </Route>
         </Routes>
       </BrowserRouter>
